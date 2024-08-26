@@ -1,0 +1,41 @@
+<!-- <app-header [item]="data"></app-header>
+<button (click)="updateChild()">update</button> -->
+
+<!-- basic from -->
+
+<!-- <form #basicForm="ngForm" (ngSubmit)="getData(basicForm.value)">
+ <input type="text" ngModel name="user" placeholder="enter user name"  />
+ <br> <br>
+ <input type="text" ngModel name="email" placeholder="enter user email"  />
+ <br> <br>
+ <input type="text" ngModel name="password" placeholder="enter user password"  />
+ <br> <br>
+ <button>submit</button>
+
+</form>
+
+<ul>
+    <li>{{userData.user}}</li>
+    <li>{{userData.email}}</li>
+    <li>{{userData.password}}</li>
+</ul> -->
+
+
+<!-- reactive form  / form validation -->
+
+
+<form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+
+    <input type="text" placeholder="username" formControlName="user"/>
+    <br> 
+
+    <span style="color: red;" *ngIf="user && user.invalid && user.touched">this input is not valid</span>
+    <br>
+    <br>
+    <input type="password" placeholder="userpassword" formControlName="password">
+    <br>
+    <span style="color: red;" *ngIf="password && password.invalid && password.touched">password input is not valid</span>
+    <br>
+    <button [disabled]="loginForm.invalid">login</button>
+
+</form>
